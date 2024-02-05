@@ -38,8 +38,36 @@
                 bbox.getSouthWest()
             ]).addTo(map);
             map.fitBounds(poly.getBounds());
+
+            // Convert address to coordinates using OpenStreetMap Nominatim API
+            var address = e.geocode.name;
+            convertAddressToCoordinates(address);
         }).addTo(map);
 
+        function convertAddressToCoordinates(address) {
+            // Construct the URL for the OpenStreetMap Nominatim API
+            var apiUrl = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}`;
+
+            // Make a request to the API
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length > 0) {
+                        var latitude = data[0].lat;
+                        var longitude = data[0].lon;
+                        console.log('Coordinates: ' + latitude + ', ' + longitude);
+                        // You can use the coordinates as needed, for example, display them on the map
+                        L.marker([latitude, longitude]).addTo(map)
+                            .bindPopup(`Coordinates: ${latitude}, ${longitude}`)
+                            .openPopup();
+                    } else {
+                        console.log('Address not found');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        }
     </script>
 
 </body>
