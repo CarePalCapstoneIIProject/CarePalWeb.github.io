@@ -7,35 +7,7 @@
     <title>CarePal</title>
     <style>
 
-        #video-container {
-            position: relative;
-            width: 100%;
-            height: 0;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            overflow: hidden;
-        }
-
-        #video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        #video-overlay {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: #FFF;
-            text-align: center;
-            padding-top: 20%;
-        }
-
+        
 
 
 
@@ -120,31 +92,9 @@
 
 
 
-    <section>
-        <div id="video-container">
-            <video id="video" autoplay muted>
-                <!-- Replace 'your-video.mp4' with the actual video file path -->
-                <source src="https://github.com/CarePalCapstoneIIProject/CarePalWeb.github.io/blob/main/CarePal_Video.mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div id="video-overlay">
-                <h2>Welcome to CarePal!</h2>
-                <p>This is the homepage content.</p>
-            </div>
-        </div>
-    </section>
+  
 
-     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var video = document.getElementById('video');
-            var videoOverlay = document.getElementById('video-overlay');
-
-            video.addEventListener('ended', function () {
-                video.style.display = 'none';
-                videoOverlay.style.display = 'block';
-            });
-        });
-    </script>
+    
 
     <section>
         <!-- Your homepage content goes here -->
