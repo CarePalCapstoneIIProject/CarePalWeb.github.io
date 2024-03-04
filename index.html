@@ -6,35 +6,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CarePal</title>
     <style>
-        /* Your existing styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #050517;
+            color: #F1FAEE;
+        }
 
-        #video-container {
+        header {
+            background-color: #457B9D;
+            padding: 10px;
+            text-align: center;
+            color: #F1FAEE;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #1D3557;
+            padding: 10px;
+        }
+
+        nav a {
+            color: #F1FAEE;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            background-color: #A8DADC;
+        }
+
+        .dropdown {
             position: relative;
-            width: 100%;
-            height: 0;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            overflow: hidden;
+            display: inline-block;
         }
 
-        #video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        #video-overlay {
+        .dropdown-content {
             display: none;
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: #FFF;
-            text-align: center;
-            padding-top: 20%;
+            background-color: #1D3557;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        section {
+            padding: 20px;
         }
     </style>
 </head>
@@ -46,34 +69,24 @@
     </header>
 
     <nav>
-        <!-- Your existing navigation bar here -->
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <div class="dropdown">
+            <a href="#">Services</a>
+            <div class="dropdown-content">
+                <a href="Service 1.html">Service 1</a>
+                <a href="#">Service 2</a>
+                <a href="#">Service 3</a>
+            </div>
+        </div>
+        <a href="#">Contact</a>
     </nav>
 
     <section>
-        <div id="video-container">
-            <video id="video" autoplay muted>
-                <!-- Replace 'your-video.mp4' with the actual video file path -->
-                <source src="https://github.com/CarePalCapstoneIIProject/CarePalWeb.github.io/blob/main/CarePal_Video.mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div id="video-overlay">
-                <h2>Welcome to CarePal!</h2>
-                <p>This is the homepage content.</p>
-            </div>
-        </div>
+        <!-- Your homepage content goes here -->
+        <h2>Welcome to CarePal!</h2>
+        <p>This is the homepage content.</p>
     </section>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var video = document.getElementById('video');
-            var videoOverlay = document.getElementById('video-overlay');
-
-            video.addEventListener('ended', function () {
-                video.style.display = 'none';
-                videoOverlay.style.display = 'block';
-            });
-        });
-    </script>
 
 </body>
 
