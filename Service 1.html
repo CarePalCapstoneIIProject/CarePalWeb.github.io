@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Display Current Location on Map</title>
+    <title>Display Current Location and Nearby Pins on Map</title>
     <!-- Include Leaflet CSS and JS files -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
@@ -16,25 +16,35 @@
 <script>
     // Function to initialize the map
     function initMap() {
-        // Create a Leaflet map centered at (0,0) with zoom level 13
+        // Original code for creating a Leaflet map
         var map = L.map('map').setView([0, 0], 13);
-
-        // Add OpenStreetMap tile layer
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
 
         // Get the user's current location using Geolocation API
         navigator.geolocation.getCurrentPosition(function (position) {
-            var lat = position.coords.latitude;
-            var lon = position.coords.longitude;
+            var userLat = position.coords.latitude;
+            var userLon = position.coords.longitude;
 
             // Set the map center to the user's location
-            map.setView([lat, lon], 13);
+            map.setView([userLat, userLon], 13);
 
             // Add a marker at the user's location
-            L.marker([lat, lon]).addTo(map)
+            L.marker([userLat, userLon]).addTo(map)
                 .bindPopup('Your current location').openPopup();
+
+            // New code: Add markers for nearby addresses (Replace with actual data from your database)
+            var nearbyAddresses = [
+                { lat: userLat + 0.01, lon: userLon + 0.01, title: 'Nearby Location 1' },
+                { lat: userLat - 0.02, lon: userLon - 0.02, title: 'Nearby Location 2' },
+                // Add more addresses as needed
+            ];
+
+            nearbyAddresses.forEach(function (address) {
+                L.marker([address.lat, address.lon]).addTo(map)
+                    .bindPopup(address.title);
+            });
         }, function (error) {
             console.error('Error getting user location:', error.message);
         });
