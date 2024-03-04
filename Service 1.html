@@ -34,6 +34,13 @@
             L.marker([userLat, userLon]).addTo(map)
                 .bindPopup('Your current location').openPopup();
 
+            // Add a marker for the University of Michigan (replace with actual coordinates)
+            var umichLat = 42.2780; // Replace with actual latitude of University of Michigan
+            var umichLon = -83.7382; // Replace with actual longitude of University of Michigan
+
+            L.marker([umichLat, umichLon]).addTo(map)
+                .bindPopup('University of Michigan').openPopup();
+
             // New code: Add markers for nearby addresses (Replace with actual data from your database)
             var nearbyAddresses = [
                 { lat: userLat + 6.77, lon: userLon + 10.50, title: 'Nearby Location 1' },
