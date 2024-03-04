@@ -3,47 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Map with Leaflet and OpenStreetMap</title>
+    <title>Display Current Location on Map</title>
+    <!-- Include Leaflet CSS and JS files -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <style>
-        #map {
-            height: 400px;
-            width: 100%;
-        }
-    </style>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 <body>
 
-<div id="map"></div>
-<label for="starting-address">Starting Address:</label>
-<input type="text" id="starting-address">
+<!-- Create a div to hold the map -->
+<div id="map" style="height: 400px;"></div>
 
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
 <script>
-    var map = L.map('map').setView([0, 0], 2);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+    // Function to initialize the map
+    function initMap() {
+        // Create a Leaflet map centered at (0,0) with zoom level 13
+        var map = L.map('map').setView([0, 0], 13);
 
-    var geocoder = L.Control.geocoder().addTo(map);
-    var startingAddressInput = document.getElementById('starting-address');
+        // Add OpenStreetMap tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
 
-    startingAddressInput.addEventListener('change', function () {
-        geocodeAddress();
-    });
+        // Get the user's current location using Geolocation API
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var lat = position.coords.latitude;
+            var lon = position.coords.longitude;
 
-    function geocodeAddress() {
-        var startingAddress = document.getElementById('starting-address').value;
+            // Set the map center to the user's location
+            map.setView([lat, lon], 13);
 
-        geocoder.geocode(startingAddress, function (results) {
-            if (results.length > 0) {
-                var latlng = results[0].center;
-                map.setView(latlng, 12); // Zoom to level 12
-                L.marker(latlng).addTo(map);
-            } else {
-                alert('Geocoding failed for the entered address.');
-            }
+            // Add a marker at the user's location
+            L.marker([lat, lon]).addTo(map)
+                .bindPopup('Your current location').openPopup();
+        }, function (error) {
+            console.error('Error getting user location:', error.message);
         });
     }
+
+    // Call the initMap function when the page is loaded
+    document.addEventListener('DOMContentLoaded', initMap);
 </script>
 
 </body>
