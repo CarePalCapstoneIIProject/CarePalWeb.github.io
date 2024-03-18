@@ -6,19 +6,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CarePal</title>
     <style>
+
+        
+
+
+
+
+
+        
         body {
-            background-color: #050517;
-            color: #F1FAEE;
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+            background-color: #050517;
+            color: #F1FAEE;
         }
 
-        .container {
+        header {
+            background-color: #457B9D;
+            padding: 10px;
+            text-align: center;
+            color: #F1FAEE;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #1D3557;
+            padding: 10px;
+        }
+
+        nav a {
+            color: #F1FAEE;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            background-color: #A8DADC;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #1D3557;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+	        .container {
             max-width: 800px;
             text-align: center;
         }
@@ -29,28 +79,28 @@
             margin-bottom: 20px;
         }
     </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>CarePal</h1>
+    </header>
+
     <nav>
         <a href="index.html">Home</a>
         <a href="About.html">About</a>
+        <a href="appointment.html">Appointments</a>
         <div class="dropdown">
             <a href="#">Services</a>
             <div class="dropdown-content">
-                <a href="Service 1.html">Service 1</a>
+                <a href="Service 1.html">Map</a>
                 <a href="#">Service 2</a>
                 <a href="#">Service 3</a>
             </div>
         </div>
         <a href="Contacts.html">Contact</a>
     </nav>
-</head>
-
-
-<body>
-
-
-
-
-    
     <div class="container">
         <p>
             Our primary objective is to create a website and app that will allow patients or their relatives to find and connect with in-home caregivers,
@@ -58,13 +108,10 @@
               bookmark them for later, and schedule interviews with caregivers to ensure they are a good fit. Additionally,
                caregivers will be able to schedule event reminders for their patients. They will also have a feature on the app that allows them to directly get access to EMS
                 (emergency medical services) to receive extra support in case of possible patient emergencies.
-                 Our website will help patients and/or their relatives make informed decisions regarding their caregiver and facilitate the meeting between the parties,
+                Our website will help patients and/or their relatives make informed decisions regarding their caregiver and facilitate the meeting between the parties,
                   and will not force nor attempt to bias a patient or their relative into choosing one caregiver over another. We will build the front end of the website,
                    with all of its functionality, as well as build a back end database that stores user information in a secure manner. Our estimated budget needed for this project is $38,248.57.
                     We have no connection to the agency mission, business impact, or other projects.
 
         </p>
     </div>
-</body>
-
-</html>
