@@ -17,25 +17,24 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="Map.html">Map</a>
+                <a class="nav-link" href="Map.php">Map</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="Schedule%20Interview.html">Schedule an Interview</a>
+                <a class="nav-link" href="Schedule%20Interview.php">Schedule an Interview</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="Contact%20Us.html">Contact Us</a>
+                <a class="nav-link" href="Contact%20Us.php">Contact Us</a>
             </li>
         </ul>
         </div>
     </div>
 </nav>
     <div class="container pt-5">
-        <div class="row">
+        <div class="row pb-5">
             <h1>Reach out to us!</h1>
-            <h1>Contact Form</h1>
             <form id="contact_form" name="contact_form" method="post">
                 <div class="mb-5 row">
                     <div class="col">
@@ -63,11 +62,13 @@
                     <label for="message">Message</label>
                     <textarea class="form-control" id="message" name="message" rows="5"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary px-4 btn-lg">Post</button>
+                <button type="submit" class="btn btn-primary px-4 btn-lg">Send</button>
             </form>
         </div>
+
     <div class="row">
         <h1>Frequently Asked Questions</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </div>
 </div>
 </body>
